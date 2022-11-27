@@ -63,12 +63,3 @@ project(':core') {
 	dependencies {
 	}
 }
-
-project(':batch') {
-	bootJar { enabled = true }
-	jar { enabled = false }
-
-	dependencies {
-		implementation project(":core")
-	}
-}
