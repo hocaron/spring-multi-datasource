@@ -68,7 +68,7 @@ public class AccountDataSourceConfig {
 	}
 
 	@Bean
-	public PlatformTransactionManager certificationTransactionManager() {
+	public PlatformTransactionManager accountTransactionManager() {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(accountEntityManagerFactory().getObject());
 		return transactionManager;

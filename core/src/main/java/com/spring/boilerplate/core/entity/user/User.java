@@ -7,9 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
@@ -18,7 +20,15 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "email", unique = true, columnDefinition = "회원 이메일")
+	@Column(name = "email", unique = true)
 	private String email;
+
+	public User(String email) {
+		this.email = email;
+	}
+
+	public static User from(String email) {
+		return new User(email);
+	}
 
 }

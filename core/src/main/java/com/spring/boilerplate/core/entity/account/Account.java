@@ -6,10 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.spring.boilerplate.core.entity.user.User;
+
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Account {
@@ -18,10 +22,18 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "account", unique = true, columnDefinition = "계좌번호")
+	@Column(name = "account", unique = true)
 	private String account;
 
-	@Column(name = "email", unique = true, columnDefinition = "사용자 id")
+	@Column(name = "user_id")
 	private Long userId;
 
+	public Account(String account, Long userId) {
+		this.account = account;
+		this.userId = userId;
+	}
+
+	public static Account of(String account, User user) {
+		return new Account(account, user.getId());
+	}
 }
