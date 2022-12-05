@@ -1,4 +1,4 @@
-# Spring Boiler Plate
+# Spring Multi Datasource
 
 ## 🔥 작업 반영 사항
 - [x] 멀티 모듈 설정
